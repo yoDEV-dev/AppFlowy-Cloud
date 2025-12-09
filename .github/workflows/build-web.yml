@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: AppFlowy-IO/AppFlowy-Web
-          ref: main
+          ref: d3eb7cf7fe96bbe21aa4bd192f3dc8aea6347507
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
