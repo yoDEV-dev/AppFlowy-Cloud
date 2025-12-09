@@ -3,9 +3,6 @@ name: Build AppFlowy Cloud Images
   on:
     workflow_dispatch:
 
-  env:
-    REGISTRY: ghcr.io
-
   jobs:
     build-appflowy-cloud:
       runs-on: ubuntu-latest
@@ -22,7 +19,7 @@ name: Build AppFlowy Cloud Images
         - name: Login to GHCR
           uses: docker/login-action@v3
           with:
-            registry: ${{ env.REGISTRY }}
+            registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -33,8 +30,6 @@ name: Build AppFlowy Cloud Images
             file: ./Dockerfile
             push: true
             tags: ghcr.io/yodev-dev/appflowy_cloud:latest
-            cache-from: type=gha
-            cache-to: type=gha,mode=max
 
     build-admin-frontend:
       runs-on: ubuntu-latest
@@ -51,7 +46,7 @@ name: Build AppFlowy Cloud Images
         - name: Login to GHCR
           uses: docker/login-action@v3
           with:
-            registry: ${{ env.REGISTRY }}
+            registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -62,5 +57,3 @@ name: Build AppFlowy Cloud Images
             file: ./admin_frontend/Dockerfile
             push: true
             tags: ghcr.io/yodev-dev/admin_frontend:latest
-            cache-from: type=gha
-            cache-to: type=gha,mode=max
