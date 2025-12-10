@@ -131,10 +131,6 @@
         },
         {
           "type": "bulleted_list",
-          "data": { "delta": [{ "insert": "AI Chat" }] }
-        },
-        {
-          "type": "bulleted_list",
           "data": {
             "delta": [
               {
